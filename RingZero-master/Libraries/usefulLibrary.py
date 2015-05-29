@@ -21,6 +21,14 @@ def hexStringToString(myString):
     asciiValue = binascii.unhexlify(myString)
     print asciiValue
 
+def findSha1Hash(challenge):
+    f = open("hash.txt", "r")
+    f.seek(0)
+    numb = 0
+    for line in f:
+        if line == challenge + '\n':
+             return str(numb)
+        numb = numb + 1
 
 def fileExist(filePath):
     import os

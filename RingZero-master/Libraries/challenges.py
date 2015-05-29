@@ -1,9 +1,10 @@
 __author__ = 'Aymen'
-from ringzer0team import hash_me_please, hash_me_reloaded, equation
+from ringzer0team import hash_me_please, hash_me_reloaded, equation, hash_breaker
 from termcolor import colored
 from colorama import init
 
 challenges = {32 : equation.equation,
+              56 : hash_breaker.hash_breaker,
               13 : hash_me_please.hash_me_please,
               14 : hash_me_reloaded.hash_me_reloaded
              }
