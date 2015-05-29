@@ -12,7 +12,7 @@ def hash_me_please():
     session = connectionLib.connect(URL_CHALLENGE, ERROR_HANDLE)
     page_source = connectionLib.getWebpage(session, URL_CHALLENGE)
     challenge = connectionLib.getPayload(page_source, BEG_MESSAGE, END_MESSAGE, 4)
-    answer = usefulLibrary.stringTosha512(challenge)    #sha1
+    answer = usefulLibrary.stringTosha512(challenge)    #sha512
     flag_page = connectionLib.submitPayload(answer, session, URL_CHALLENGE)
     myFlag = connectionLib.getPayload(flag_page, "FLAG", "</div>", -4)
 
