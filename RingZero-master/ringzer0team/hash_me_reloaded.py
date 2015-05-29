@@ -9,16 +9,16 @@ def hash_me_reloaded():
     URL_CHALLENGE = "http://ringzer0team.com/challenges/14"
     ERROR_HANDLE = "You are not logged in"
     BEG_MESSAGE = "----- BEGIN MESSAGE -----<br />"   # to retrive the begining of flag
-    END_MESSAGE = "<br />"                                      # end its end
+    END_MESSAGE = "<br />"                            # end its end
 
     session = connectionLib.connect(URL_CHALLENGE, ERROR_HANDLE)
     page_source = connectionLib.getWebpage(session, URL_CHALLENGE)
     challenge = connectionLib.getPayload(page_source, BEG_MESSAGE, END_MESSAGE, 4)
-    challenge = usefulLibrary.binaryStringToString(challenge)
-    answer = usefulLibrary.stringTosha512(challenge)
+    challenge = usefulLibrary.binaryStringToString(challenge)   #bin
+    answer = usefulLibrary.stringTosha512(challenge)            #sha1
     flag_page = connectionLib.submitPayload(answer, session, URL_CHALLENGE)
     myFlag = connectionLib.getPayload(flag_page, "FLAG", "</div>", -4)
     if myFlag == "":
-        return "Error, flag not found"
+        return colored('Error, flag not found', 'yellow')
     connectionLib.submitFlag(myFlag, session, URL_CHALLENGE)
     return colored('Flag was found : ', 'green') + myFlag

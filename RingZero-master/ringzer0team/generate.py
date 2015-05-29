@@ -1,8 +1,9 @@
 __author__ = 'Kid'
+# generate.py > ../Dicts/hash.txt
 # the number of the line is the int value of the hash
-# generate.py > hash.txt
 
-import hashlib
+import hashlib, os
+
 var = '0'  #from 0 to 9999
 while var <= '9999':
     hash_object = hashlib.sha1(var)
