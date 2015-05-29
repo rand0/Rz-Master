@@ -35,12 +35,12 @@ def populateCreds(creds):
 
 def createCreds(creds):
     usefulLibrary.createFile(creds)
-    print colored('WARNING:', 'red'), colored('Your credentials file: ', 'green'), colored(creds, 'white') + colored(' was not found ! \n', 'green')
+    print colored('WARNING:', 'red'), colored('Your credentials file:', 'green'), colored(creds, 'white') + colored(' was not found ! \n', 'green')
     print colored(colors.UNDERLINE + '--------------------------------------------------------------------------', 'white')
     USERNAME = input(colors.CREDS +  "Username: ")
     PASSWORD = getpass.getpass("Password: ")
-    print colored(colors.UNDERLINE + '--------------------------------------------------------------------------\n', 'white')
-    print ('{:^100}'.format(colors.HEADER+ '** ' +colors.OKBLUE + 'Welcome ' + colors.CREDS + USERNAME + colors.HEADER+ ' **' '\n\n'))
+    print colored(colors.UNDERLINE + '--------------------------------------------------------------------------', 'white')
+    print ('\n' + '{:^100}'.format(colors.HEADER+ '** ' +colors.OKBLUE + 'Welcome ' + colors.CREDS + USERNAME + colors.HEADER+ ' **' '\n\n'))
     usefulLibrary.createFile(creds)
     cryptedLogins = usefulLibrary.encryptData(USERNAME, PASSWORD)
     usefulLibrary.appendToFile(creds, cryptedLogins)
