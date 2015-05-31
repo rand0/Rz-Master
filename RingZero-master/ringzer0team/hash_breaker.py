@@ -3,7 +3,6 @@ __author__ = 'Kid'
 def hash_breaker():
     from Libraries import connectionLib, usefulLibrary
     from termcolor import colored
-    from colorama import init
     import os
 
     URL_CHALLENGE = "http://ringzer0team.com/challenges/56"
@@ -14,7 +13,7 @@ def hash_breaker():
     page_source = connectionLib.getWebpage(session, URL_CHALLENGE)
     challenge = connectionLib.getPayload(page_source, BEG_MESSAGE, END_MESSAGE, 4)
 
-    os.system('cd ringzer0team && generate.py > ../Dicts/hash.txt') #generate hash list
+    os.system('cd ringzer0team && generate.py > ../Dicts/hash.txt')     #generate hash list
     answer = usefulLibrary.findSha1Hash('./Dicts/hash.txt', challenge)  #find the hash in hash.txt
     answer = str(answer)
     flag_page = connectionLib.submitPayload(answer, session, URL_CHALLENGE)

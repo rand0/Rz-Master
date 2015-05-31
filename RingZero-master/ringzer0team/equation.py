@@ -3,7 +3,6 @@ __author__ = 'Kid'
 def equation():
     from Libraries import connectionLib, usefulLibrary
     from termcolor import colored
-    from colorama import init
 
     URL_CHALLENGE = "http://ringzer0team.com/challenges/32"
     ERROR_HANDLE = "You are not logged in"

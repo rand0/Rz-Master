@@ -4,18 +4,20 @@ from termcolor import colored
 from colorama import init
 import getpass
 
-init() # Initialize the color fonction
 
 # Global Variables
 global input
 try: input = raw_input
 except NameError: pass
 
+
 DOMAIN = "http://ringzer0team.com"
 CHALLENGES = "RingZeroTeam"
 
+init() # Initialize the color fonction
 
-class colors:
+def colors():
+
     HEADER = '\033[97m'  #white
     OKBLUE = '\033[94m'
     CREDS = '\033[91m'
@@ -24,7 +26,6 @@ class colors:
     ENDC = '\033[0m'
     FLAG = '\033[1m'
     UNDERLINE = '\033[1;44m'
-
 
 def populateCreds(creds):
     cryptedLogins = usefulLibrary.readFile(creds)

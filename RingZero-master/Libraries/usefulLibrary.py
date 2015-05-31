@@ -30,6 +30,28 @@ def findSha1Hash(file, hash):
              return str(numb)
         numb = numb + 1
 
+def findAndReplaceAscii(msg):
+
+    #ascii numbers
+    Zero = "<br />&nbsp;xxx&nbsp;<br />x&nbsp;&nbsp;&nbsp;x<br />x&nbsp;&nbsp;&nbsp;x<br />x&nbsp;&nbsp;&nbsp;x<br />&nbsp;xxx&nbsp;<br />"
+    Un = "<br />&nbsp;xx&nbsp;&nbsp;<br />x&nbsp;x&nbsp;&nbsp;<br />&nbsp;&nbsp;x&nbsp;&nbsp;<br />&nbsp;&nbsp;x&nbsp;&nbsp;<br />xxxxx<br />"
+    Deux = "<br />&nbsp;xxx&nbsp;<br />x&nbsp;&nbsp;&nbsp;x&nbsp;<br />&nbsp;&nbsp;xx&nbsp;<br />&nbsp;x&nbsp;&nbsp;&nbsp;<br />xxxxx<br />"
+    Quatre = "<br />&nbsp;x&nbsp;&nbsp;&nbsp;x<br />x&nbsp;&nbsp;&nbsp;&nbsp;x<br />&nbsp;xxxxx<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x<br />&nbsp;&nbsp;&nbsp;&nbsp;x<br />"
+    Cinq = "<br />xxxxx<br />x&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;xxxx<br />&nbsp;&nbsp;&nbsp;&nbsp;x<br />xxxxx"
+    Huit = "<br />&nbsp;xxx&nbsp;<br />x&nbsp;&nbsp;&nbsp;x<br />&nbsp;&nbsp;xx&nbsp;<br />x&nbsp;&nbsp;&nbsp;x<br />&nbsp;xxx&nbsp;<br />"
+
+    #remplace values
+    msg = msg.replace(Zero, '0')
+    msg = msg.replace(Un, '1')
+    msg = msg.replace(Deux, '2')
+    msg = msg.replace(Quatre, '4')
+    msg = msg.replace(Cinq, '5')
+    msg = msg.replace(Huit, '8')
+    msg = msg.replace("<br /><br />", '') # end of msg
+    msg = msg.rstrip() # remove whitespaces
+
+    return msg
+
 def fileExist(filePath):
     import os
     return os.path.exists(filePath)
